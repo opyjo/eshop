@@ -15,11 +15,14 @@ const HomeScreen = ({ match }) => {
 
   const pageNumber = match.params.pageNumber || 1;
 
+  // The useDispatch hook returns a reference to the dispatch function from the Redux store.
   const dispatch = useDispatch();
 
+  // The useSelector hook is used to extract data from the Redux store state, using a selector function.
   const productList = useSelector((state) => state.productList);
   const { loading, error, products, page, pages } = productList;
 
+  // the useEffect hook is used to call the listProducts action creator when the component is rendered
   useEffect(() => {
     dispatch(listProducts(keyword, pageNumber));
   }, [dispatch, keyword, pageNumber]);

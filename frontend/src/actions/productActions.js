@@ -24,6 +24,7 @@ import {
 } from "../constants/productConstants";
 import { logout } from "./userActions";
 
+// we will use thunk to make async request to the backend. redux thunk is a middleware that allows us to make async request in our action creators and dispatch multiple actions in our action creators. Thunk is a middleware that allows us to call action creators that return a function instead of an action object. That function receives the store's dispatch method, which is then used to dispatch regular synchronous actions inside the body of the function once the asynchronous operations have completed.
 export const listProducts = (keyword = "", pageNumber = "") => async (
   dispatch
 ) => {

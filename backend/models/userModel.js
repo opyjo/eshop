@@ -1,19 +1,17 @@
 import mongoose from "mongoose";
 import bcrypt from "bcryptjs";
 
-//bycrypt is used to hash the password. It takes in the password and the number of rounds to hash the password. The higher the number of rounds, the more secure the password is. However, it will take longer to hash the password. The default number of rounds is 10.
-
 // creating the user schema for the database. This is a model. This is a blueprint for the user.
 const userSchema = mongoose.Schema(
   {
     name: {
       type: String,
-      required: true,
+      required: true, //this is a required field in the database schema for the user model to be created
     },
     email: {
       type: String,
       required: true,
-      unique: true,
+      unique: true, //this means that the email has to be unique. It cannot be the same as another email in the database.
     },
     password: {
       type: String,
@@ -22,13 +20,15 @@ const userSchema = mongoose.Schema(
     isAdmin: {
       type: Boolean,
       required: true,
-      default: false,
+      default: false, // This means when a user is created, The user is not an admin
     },
   },
   {
-    timestamps: true,
+    timestamps: true, // this means that the user will have a created at and updated at field in the database
   }
 );
+
+//bycrypt is used to hash the password. It takes in the password and the number of rounds to hash the password. The higher the number of rounds, the more secure the password is. However, it will take longer to hash the password. The default number of rounds is 10.
 
 // bcrypt.compare() returns a promise, so we need to use async/await
 userSchema.methods.matchPassword = async function (enteredPassword) {

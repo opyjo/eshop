@@ -1,3 +1,4 @@
+// bcrypt is used to hash the password. It takes in the password and the number of rounds to hash the password. The higher the number of rounds, the more secure the password is. However, it will take longer to hash the password. The default number of rounds is 10.
 import bcrypt from "bcryptjs";
 
 const users = [

@@ -32,7 +32,7 @@ import {
   orderDeliverReducer,
 } from "./reducers/orderReducer";
 
-// The reducers are imported from the reducers folder.
+// The reducers are imported from the reducers folder. The combine reducer function is used to combine all the reducers into one reducer.
 const reducer = combineReducers({
   productList: productListReducer,
   productDetails: productDetailsReducer,

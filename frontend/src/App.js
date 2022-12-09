@@ -22,15 +22,12 @@ import OrderListScreen from "./Screens/OrderListScreen";
 
 const App = () => {
   return (
-    // using react router 6 to render multiple components on the same page. Here the homescreen will rendet the header,productScreen and the footer.
-
     <Router>
       <Header />
       <main className="py-3">
         <Container>
           <Route path="/order/:id" component={OrderScreen} />
           <Route path="/login" component={LoginScreen} />
-          <Route path="/shipping" component={ShippingScreen} />
           <Route path="/shipping" component={ShippingScreen} />
           <Route path="/placeorder" component={PlaceOrderScreen} />
           <Route path="/payment" component={PaymentScreen} />
@@ -52,6 +49,8 @@ const App = () => {
           />
           <Route path="/admin/product/:id/edit" component={ProductEditScreen} />
           <Route path="/admin/orderlist" component={OrderListScreen} />
+
+          {/* HOMESCREENS: this is the Landing page */}
           <Route path="/page/:pagenumber" component={HomeScreen} exact />
           <Route path="/search/:keyword" component={HomeScreen} exact />
           <Route
